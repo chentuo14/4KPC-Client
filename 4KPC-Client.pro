@@ -25,13 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    CustomWidget/widget.cpp
+    CustomWidget/widget.cpp \
+    CustomWidget/customtoolbutton.cpp \
+    CustomWidget/leftmenubar.cpp
 
 HEADERS += \
-    CustomWidget/widget.h
+    CustomWidget/widget.h \
+    CustomWidget/customtoolbutton.h \
+    CustomWidget/leftmenubar.h
 
 FORMS += \
-    CustomWidget/widget.ui
+    CustomWidget/widget.ui \
+    CustomWidget/leftmenubar.ui
 
 RESOURCES += \
     Resource/res.qrc
