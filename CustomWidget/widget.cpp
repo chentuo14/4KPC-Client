@@ -8,6 +8,11 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
     InitMyWidget();
+
+    m_leftMenu = new LeftMenuBar(this);
+    m_leftMenu->setGeometry(0,0,200, this->height());
+    m_leftMenu->initBtns(6);
+    m_leftMenu->OnBtnClicked(0);
 }
 
 Widget::~Widget()

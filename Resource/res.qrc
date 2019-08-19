@@ -7,5 +7,6 @@
         <file alias="mini.png">minus_445px_1194502_easyicon.net.png</file>
         <file alias="setting.png">setting_445px_1194517_easyicon.net.png</file>
         <file alias="close.png">x_close_445px_1194532_easyicon.net.png</file>
+        <file>SoonSolid_icon.png</file>
     </qresource>
 </RCC>

@@ -7,6 +7,7 @@
 #include <QToolButton>
 #include <QPainter>
 #include <QBitmap>
+#include "CustomWidget/leftmenubar.h"
 
 namespace Ui {
 class Widget;
@@ -35,9 +36,11 @@ protected:
 
 private:
     Ui::Widget *ui;
+    LeftMenuBar *m_leftMenu;
     QPoint m_mouseMovePoint;
     bool m_mousePressed;
     QToolButton *m_minButton, *m_closeButton, *m_skinButton, *m_settingButton;
+
 };
 
 #endif // WIDGET_H
