@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/background">
+        <file>timg.jpg</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file alias="skin.png">browser_445px_1194450_easyicon.net.png</file>
+        <file alias="mini.png">minus_445px_1194502_easyicon.net.png</file>
+        <file alias="setting.png">setting_445px_1194517_easyicon.net.png</file>
+        <file alias="close.png">x_close_445px_1194532_easyicon.net.png</file>
+    </qresource>
+</RCC>
