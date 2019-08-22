@@ -1,18 +1,16 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include <QDebug>
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget),
-    m_mousePressed(false)
+    m_mousePressed(false),
+    m_leftMenuNum(6),
+    m_leftMenuWidth(140)
 {
     ui->setupUi(this);
     InitMyWidget();
-
-    m_leftMenu = new LeftMenuBar(this);
-    m_leftMenu->setGeometry(0,0,200, this->height());
-    m_leftMenu->initBtns(6);
-    m_leftMenu->OnBtnClicked(0);
 }
 
 Widget::~Widget()
@@ -66,7 +64,21 @@ void Widget::InitMyWidget()
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     setMouseTracking(true);
     this->setGeometry(0, 0, 880, 543);
+
+    InitLeftButton();
+    /* 初始化stackWdiget */
+    m_stackWidget = new QStackedWidget(this);
+    m_widgteOne = new StackWidgetOne(this);
+    m_stackWidget->addWidget(m_widgteOne);
+    for(int i=1;i<m_leftMenuNum;i++) {
+        m_stackWidget->addWidget(new QLabel(QString("windowTest%1").arg(i)));
+    }
+
+    m_stackWidget->setGeometry(m_leftMenuWidth, 0, this->width()-m_leftMenuWidth, this->height());
+    connect(m_leftMenu->getLeftMenuButtonGroup(),SIGNAL(buttonClicked(int)), m_stackWidget,SLOT(setCurrentIndex(int)));
+
     InitRightTopButton();
+
 }
 
 void Widget::InitRightTopButton()
@@ -114,4 +126,36 @@ void Widget::InitRightTopButton()
 
     connect(m_closeButton, &QToolButton::clicked, this, &Widget::onCloseButtonSlot);
     connect(m_minButton, &QToolButton::clicked, this, &Widget::onMinButtonSlot);
+}
+
+void Widget::InitLeftButton()
+{
+    /* 初始化左侧界面 */
+    m_leftMenu = new LeftMenuBar(this);
+    m_leftMenu->setGeometry(0, 0, m_leftMenuWidth, this->height());
+    m_leftMenu->initBtns(m_leftMenuNum);
+    QVector<CustomToolButton *> *vec = m_leftMenu->getCustomToolButtonVec();
+    /* 初始化按钮图标 */
+    m_leftMenu->setBtnIcon(0, ":/background/monitor_empty.png", ":/background/monitor_fill.png");
+    m_leftMenu->setBtnIcon(1, ":/icon/print_unchecked.png", ":/icon/print_checked.png");
+    m_leftMenu->setBtnIcon(2, ":/icon/print_unchecked.png", ":/icon/print_checked.png");
+    m_leftMenu->setBtnIcon(3, ":/icon/print_unchecked.png", ":/icon/print_checked.png");
+    m_leftMenu->setBtnIcon(4, ":/icon/print_unchecked.png", ":/icon/print_checked.png");
+    m_leftMenu->setBtnIcon(5, ":/icon/laptop_black.png", ":/icon/laptop_color.png");
+    /* 初始化图标的大小 */
+    int size = qMin(vec->at(0)->width()/4, vec->at(0)->height());
+    for(int i=0;i<6;i++) {
+        vec->at(i)->setMyIconSize(QSize(size, size));
+    }
+
+    //默认选中按钮0
+    m_leftMenu->OnBtnClicked(0);
+}
+
+void Widget::InitWidgetOne()
+{
+    m_widOneTitle = new QLabel(m_stackWidget->widget(0));
+    m_widOneTitle->setGeometry(0,0, 100, 100);
+    m_widOneTitle->setText("Hello,Ready for printing.");
+
 }

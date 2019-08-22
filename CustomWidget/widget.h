@@ -7,7 +7,10 @@
 #include <QToolButton>
 #include <QPainter>
 #include <QBitmap>
+#include <QStackedWidget>
+#include <QIcon>
 #include "CustomWidget/leftmenubar.h"
+#include "CustomWidget/stackwidgetone.h"
 
 namespace Ui {
 class Widget;
@@ -33,14 +36,22 @@ public slots:
 protected:
     void InitMyWidget();
     void InitRightTopButton();
+    void InitLeftButton();
+    void InitWidgetOne();           /* 起始界面 */
 
 private:
     Ui::Widget *ui;
+    /* 左侧菜单 */
     LeftMenuBar *m_leftMenu;
+    int m_leftMenuNum;
+    int m_leftMenuWidth;
+    QStackedWidget *m_stackWidget;
     QPoint m_mouseMovePoint;
     bool m_mousePressed;
     QToolButton *m_minButton, *m_closeButton, *m_skinButton, *m_settingButton;
-
+    /* widget one */
+    StackWidgetOne *m_widgteOne;
+    QLabel *m_widOneTitle;
 };
 
 #endif // WIDGET_H

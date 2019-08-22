@@ -27,16 +27,19 @@ SOURCES += \
         main.cpp \
     CustomWidget/widget.cpp \
     CustomWidget/customtoolbutton.cpp \
-    CustomWidget/leftmenubar.cpp
+    CustomWidget/leftmenubar.cpp \
+    CustomWidget/stackwidgetone.cpp
 
 HEADERS += \
     CustomWidget/widget.h \
     CustomWidget/customtoolbutton.h \
-    CustomWidget/leftmenubar.h
+    CustomWidget/leftmenubar.h \
+    CustomWidget/stackwidgetone.h
 
 FORMS += \
     CustomWidget/widget.ui \
-    CustomWidget/leftmenubar.ui
+    CustomWidget/leftmenubar.ui \
+    CustomWidget/stackwidgetone.ui
 
 RESOURCES += \
     Resource/res.qrc

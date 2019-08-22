@@ -22,16 +22,20 @@ public:
     explicit CustomToolButton(QWidget *parent = 0);
     void setButtonStatus(BUTTON_STATUS status);
     BUTTON_STATUS getButtonStatus();
+    void setMyIconSize(QSize size);
+    QSize getMyIconSize();
     void paintEvent(QPaintEvent * event);
     void enterEvent(QEvent *evnet);
     void leaveEvent(QEvent *event);
 public slots:
-    void onValueChanged(QVariant val);
+    void onHoverValueChanged(QVariant val);
+    void onIconValueChanged(QVariant val);
     void onBtnClickedDislapy();
     void onBtnClickedCancelDisplay();
 private:
-    QPropertyAnimation *m_animation;
-    int m_animationOffset;
+    QPropertyAnimation *m_animationHover, *m_animationIcon;
+    QSize m_iconSize;
+    int m_animationHoverOffset;
     bool m_mouseClickedFlag;
     BUTTON_STATUS m_buttonStatus;
 };

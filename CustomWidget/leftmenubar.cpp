@@ -28,7 +28,7 @@ void LeftMenuBar::DeleteLayout()
             delete child;
             child = nullptr;
         }
-        m_btnVec.clear();
+        m_btnVec->clear();
         delete this->layout();
         this->setLayout(nullptr);
     }
@@ -41,6 +41,7 @@ void LeftMenuBar::InitControl()
     connect(m_btnGroup, SIGNAL(buttonClicked(int)), this, SLOT(OnBtnClicked(int)));
     m_animation = new QPropertyAnimation(this, "");
     m_animation->setDuration(200);
+    m_btnVec = new QVector<CustomToolButton *>;
     /* 初始化logo */
     QPixmap *img = new QPixmap(":/icon/SoonSolid_icon.png");
     img->scaled(QSize(50,50), Qt::KeepAspectRatio);
@@ -70,15 +71,17 @@ void LeftMenuBar::InitControl()
 
 void LeftMenuBar::initBtns(int num)
 {
-    m_btnVec.resize(num);
+    m_btnVec->resize(num);
+    m_buttonIconPath.resize(num*2);
     for(int i=0;i<num;i++) {
         CustomToolButton *btn = new CustomToolButton(this);
         btn->setText(QString("Button%1").arg(i));
         btn->setMinimumSize(QSize(this->width(), 50));      //Note:must after setGeometry
         btn->setAutoRaise(true);
         btn->setCheckable(true);
-        btn->setStyleSheet(QString("border:none;background-color:transparent"));
-        m_btnVec[i] = btn;
+        btn->setStyleSheet(QString("margin-left:24px;border:none;background-color:transparent;color:white"));
+        btn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        m_btnVec->replace(i, btn);
         addBtn(btn, i);
     }
     m_menuLayout->addStretch(0);
@@ -90,12 +93,33 @@ void LeftMenuBar::addBtn(CustomToolButton *btn, int id)
     m_menuLayout->addWidget(btn);
 }
 
+void LeftMenuBar::setBtnIcon(int index, QString uncheckedPath, QString checkedPath)
+{
+    if(m_buttonIconPath.size() < index)
+        return;
+
+    m_buttonIconPath.replace(2*index, uncheckedPath);
+    m_buttonIconPath.replace(2*index+1, checkedPath);
+    QString path = m_buttonIconPath.at(2*index);
+    m_btnVec->at(index)->setIcon(QIcon(path));
+}
+
+QButtonGroup *LeftMenuBar::getLeftMenuButtonGroup()
+{
+    return m_btnGroup;
+}
+
+QVector<CustomToolButton *> *LeftMenuBar::getCustomToolButtonVec()
+{
+    return m_btnVec;
+}
+
 void LeftMenuBar::paintEvent(QPaintEvent *event)
 {
     QPainter winPainter(this);
     winPainter.setRenderHints(QPainter::Antialiasing);
     winPainter.setPen(Qt::NoPen);
-    winPainter.setBrush(QColor(220,220,220,50));
+    winPainter.setBrush(QColor(50,50,50,50));                   /* 背景色 */
     winPainter.drawRect(0, 0, this->width(), this->height());
 }
 
@@ -103,7 +127,14 @@ void LeftMenuBar::OnBtnClicked(int index)
 {
     m_buttonPrevIndex = m_buttonCurrIndex;
     m_buttonCurrIndex = index;
-    m_btnVec[m_buttonPrevIndex]->onBtnClickedCancelDisplay();
-    m_btnVec[m_buttonCurrIndex]->setChecked(true);
-    m_btnVec[m_buttonCurrIndex]->onBtnClickedDislapy();
+    /* 恢复上次点击的状态 */
+    m_btnVec->at(m_buttonPrevIndex)->onBtnClickedCancelDisplay();
+    QString prevIconPath = m_buttonIconPath.at(2*m_buttonPrevIndex);
+    m_btnVec->at(m_buttonPrevIndex)->setIcon(QIcon(prevIconPath));
+
+    /* 新点击的按钮 */
+    m_btnVec->at(m_buttonCurrIndex)->setChecked(true);
+    m_btnVec->at(m_buttonCurrIndex)->onBtnClickedDislapy();
+    QString currIndexPath = m_buttonIconPath.at(2*m_buttonCurrIndex+1);
+    m_btnVec->at(m_buttonCurrIndex)->setIcon(QIcon(currIndexPath));
 }
