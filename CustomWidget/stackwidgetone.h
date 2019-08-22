@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QLabel>
 #include <QPushButton>
+#include <QTimer>
+#include <QDateTime>
 
 namespace Ui {
 class StackWidgetOne;
@@ -16,11 +18,13 @@ class StackWidgetOne : public QWidget
 public:
     explicit StackWidgetOne(QWidget *parent = 0);
     ~StackWidgetOne();
-
+public slots:
+    void CheckTimeTimerSlot();
 private:
     Ui::StackWidgetOne *ui;
     QLabel *m_labelTitle;
     QPushButton *m_btnPrint;
+    QTimer *m_checkTimeTimer;
 };
 
 #endif // STACKWIDGETONE_H
