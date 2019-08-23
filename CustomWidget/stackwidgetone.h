@@ -20,6 +20,7 @@ public:
     ~StackWidgetOne();
 public slots:
     void CheckTimeTimerSlot();
+    void OnPrintBtnClicked();
 private:
     Ui::StackWidgetOne *ui;
     QLabel *m_labelTitle;

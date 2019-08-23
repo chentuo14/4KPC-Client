@@ -20,12 +20,12 @@ StackWidgetOne::StackWidgetOne(QWidget *parent) :
     m_btnPrint->setText("Print");
     m_btnPrint->setGeometry(100, 250, 150, 50);
     m_btnPrint->setStyleSheet("border:none;background-color:green;color:white");
+    connect(m_btnPrint, &QPushButton::clicked, this, &StackWidgetOne::OnPrintBtnClicked);
     /* 设置定时器获取当前时间 */
     m_checkTimeTimer = new QTimer(this);
-//    m_checkTimeTimer->setInterval(60*1000*10);  /* 10分钟 */
-    m_checkTimeTimer->setInterval(1000);
+    m_checkTimeTimer->setInterval(60*1000*10);  /* 10分钟 */
     connect(m_checkTimeTimer, &QTimer::timeout, this, &StackWidgetOne::CheckTimeTimerSlot);
-    m_checkTimeTimer->start();
+//    m_checkTimeTimer->start();
 }
 
 StackWidgetOne::~StackWidgetOne()
@@ -33,9 +33,15 @@ StackWidgetOne::~StackWidgetOne()
     delete ui;
 }
 
+//CheckTimeTimerSlot 定时器判断时间
 void StackWidgetOne::CheckTimeTimerSlot()
 {
     QDateTime currentTime = QDateTime::currentDateTime();
     qDebug()<<currentTime.toString("hh:mm:ss")<<endl<<QString::number(QTime::currentTime().hour());
-//    if(QTime::hour())
+    //    if(QTime::hour())
+}
+
+void StackWidgetOne::OnPrintBtnClicked()
+{
+    qDebug()<<"print button clicked";
 }
