@@ -16,4 +16,7 @@
         <file alias="print_unchecked.png">3D_printer_450px_1166667_easyicon.png</file>
         <file alias="print_checked.png">3D_printer_484px_1166653_easyicon.net.png</file>
     </qresource>
+    <qresource prefix="/buttonIcon">
+        <file alias="printsetting.png">settings_783px_1232032_easyicon.net.png</file>
+    </qresource>
 </RCC>

@@ -24,7 +24,7 @@ public slots:
 private:
     Ui::StackWidgetOne *ui;
     QLabel *m_labelTitle;
-    QPushButton *m_btnPrint;
+    QPushButton *m_btnPrint,*m_btnSetting,*m_btnHistory;
     QTimer *m_checkTimeTimer;
 };
 
