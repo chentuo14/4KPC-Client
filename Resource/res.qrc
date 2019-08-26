@@ -18,5 +18,6 @@
     </qresource>
     <qresource prefix="/buttonIcon">
         <file alias="printsetting.png">settings_783px_1232032_easyicon.net.png</file>
+        <file alias="printhistory.png">history_287px_1148191_easyicon.net.png</file>
     </qresource>
 </RCC>

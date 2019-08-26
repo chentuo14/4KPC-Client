@@ -21,12 +21,43 @@ StackWidgetOne::StackWidgetOne(QWidget *parent) :
     m_btnPrint->setGeometry(100, 280, 150, 50);
     m_btnPrint->setStyleSheet("border:none;background-color:green;color:white");
     connect(m_btnPrint, &QPushButton::clicked, this, &StackWidgetOne::OnPrintBtnClicked);
+    m_printingWidget = new PrintingWidget(this);
+    m_printingWidget->setGeometry(this->geometry());
+
     /* 设置按钮 */
     m_btnSetting = new QPushButton(this);
     m_btnSetting->setText("");
     m_btnSetting->setIcon(QIcon(":/buttonIcon/printsetting.png"));
     m_btnSetting->setGeometry(100, 200, 50, 50);
-    m_btnSetting->setStyleSheet("border:1px solid rgb(105,105,105);border-radius:25px;");
+    m_btnSetting->setStyleSheet("/*border:1px solid rgb(105,105,105);*/QPushButton{border-radius:25px;background-color:rgba(255,255,255,200);}QPushButton:hover{border:1px solid rgb(0,0,255);}");
+    m_settingTitle = new QLabel(this);
+    m_settingTitle->setText("Print setting");
+    m_settingTitle->setGeometry(160, 200, 140, 25);
+    m_settingTitle->setFont(QFont("Arial", 15));
+    m_settingTitle->setStyleSheet("color:rgba(255,255,255,200)");
+    m_settingStatus = new QLabel(this);
+    m_settingStatus->setText("more infos");
+    m_settingStatus->setGeometry(160, 225, 140, 25);
+    m_settingStatus->setFont(QFont("Arial", 10));
+    m_settingStatus->setStyleSheet("color:rgb(0,0,255);");
+    /* 历史按钮 */
+    m_btnHistory = new QPushButton(this);
+    m_btnHistory->setText("");
+    m_btnHistory->setGeometry(300, 200, 50, 50);
+    m_btnHistory->setStyleSheet("/*border:1px solid rgb(105,105,105);*/QPushButton{border-radius:25px;background-color:rgba(255,255,255,200);}QPushButton:hover{border:1px solid rgb(0,0,255);}");
+    m_btnHistory->setIcon(QIcon(":/buttonIcon/printhistory.png"));
+
+    m_historyTitle = new QLabel(this);
+    m_historyTitle->setText("Print history");
+    m_historyTitle->setGeometry(360, 200, 140, 25);
+    m_historyTitle->setStyleSheet("color:rgba(255,255,255,200)");
+    m_historyTitle->setFont(QFont("Arial", 15));
+
+    m_historyStatus = new QLabel(this);
+    m_historyStatus->setText("more infos");
+    m_historyStatus->setGeometry(360, 225, 140, 25);
+    m_historyStatus->setFont(QFont("Arial", 10));
+    m_historyStatus->setStyleSheet("color:rgb(0,0,255);");
     /* 设置定时器获取当前时间 */
     m_checkTimeTimer = new QTimer(this);
     m_checkTimeTimer->setInterval(60*1000*10);  /* 10分钟 */
@@ -50,4 +81,15 @@ void StackWidgetOne::CheckTimeTimerSlot()
 void StackWidgetOne::OnPrintBtnClicked()
 {
     qDebug()<<"print button clicked";
+    m_printingWidget->show();
+}
+
+void StackWidgetOne::OnHistoryBtnClicked()
+{
+    emit(btnHistoryClicked());
+}
+
+void StackWidgetOne::OnSettingBtnClicked()
+{
+    emit(btnSettingClicked());
 }
