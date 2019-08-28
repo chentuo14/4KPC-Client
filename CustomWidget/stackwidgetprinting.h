@@ -3,6 +3,10 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QLabel>
+#include <QProgressBar>
+#include <QTimer>
+#include "CustomControl/cycleprocess.h"
 
 namespace Ui {
 class StackWidgetPrinting;
@@ -17,12 +21,22 @@ public:
     ~StackWidgetPrinting();
 public slots:
     void onCancelBtnClicked();
+    void onTestTimer();
+
 signals:
+    void onStartCycleSignal(int msec);
+    void onStopCycleSignal();
     void onCancelSignal();
 
 private:
     Ui::StackWidgetPrinting *ui;
-    QPushButton *m_btnCancel;
+    QPushButton *m_btnCancel, *m_btnPasuse;
+    CycleProcess *m_cycleProcess;
+    QLabel *m_statusTitle, *m_statusContext;
+    QProgressBar *m_pritingBar;
+    QTimer m_testTimer;
+    int m_progressValue = 0;
+
 };
 
 #endif // STACKWIDGETPRINTING_H

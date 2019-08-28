@@ -146,18 +146,23 @@ void Widget::InitLeftButton()
     m_leftMenu->initBtns(m_leftMenuNum);
     QVector<CustomToolButton *> *vec = m_leftMenu->getCustomToolButtonVec();
     /* 初始化按钮图标 */
-    m_leftMenu->setBtnIcon(0, ":/background/monitor_empty.png", ":/background/monitor_fill.png");
-    m_leftMenu->setBtnIcon(1, ":/icon/print_unchecked.png", ":/icon/print_checked.png");
-    m_leftMenu->setBtnIcon(2, ":/icon/print_unchecked.png", ":/icon/print_checked.png");
-    m_leftMenu->setBtnIcon(3, ":/icon/print_unchecked.png", ":/icon/print_checked.png");
-    m_leftMenu->setBtnIcon(4, ":/icon/print_unchecked.png", ":/icon/print_checked.png");
-    m_leftMenu->setBtnIcon(5, ":/icon/laptop_black.png", ":/icon/laptop_color.png");
+    m_leftMenu->setBtnIcon(0, ":/CustomControl/print_unchecked.png", ":/CustomControl/print_checked.png");
+    m_leftMenu->setBtnIcon(1, ":/CustomControl/setting_unchecked.png", ":/CustomControl/setting_checked.png");
+    m_leftMenu->setBtnIcon(2, ":/CustomControl/history_unchecked.png", ":/CustomControl/history_checked.png");
+    m_leftMenu->setBtnIcon(3, ":/CustomControl/projector_unchecked.png", ":/CustomControl/projector_checked.png");
+    m_leftMenu->setBtnIcon(4, ":/CustomControl/machine_unchecked.png", ":/CustomControl/machine_checked.png");
+    m_leftMenu->setBtnIcon(5, ":/CustomControl/about_unchecked.png", ":/CustomControl/about_checked.png");
     /* 初始化图标的大小 */
     int size = qMin(vec->at(0)->width()/4, vec->at(0)->height());
     for(int i=0;i<6;i++) {
         vec->at(i)->setMyIconSize(QSize(size, size));
     }
-
+    vec->at(0)->setText(QString("打印"));
+    vec->at(1)->setText(QString("设置"));
+    vec->at(2)->setText(QString("记录"));
+    vec->at(3)->setText(QString("光机"));
+    vec->at(4)->setText(QString("设备"));
+    vec->at(5)->setText(QString("关于"));
     //默认选中按钮0
     m_leftMenu->OnBtnClicked(0);
 }

@@ -30,7 +30,8 @@ SOURCES += \
     CustomWidget/leftmenubar.cpp \
     CustomWidget/stackwidgetone.cpp \
     CustomWidget/mystackedwidget.cpp \
-    CustomWidget/stackwidgetprinting.cpp
+    CustomWidget/stackwidgetprinting.cpp \
+    CustomControl/cycleprocess.cpp
 
 HEADERS += \
     CustomWidget/widget.h \
@@ -38,7 +39,8 @@ HEADERS += \
     CustomWidget/leftmenubar.h \
     CustomWidget/stackwidgetone.h \
     CustomWidget/mystackedwidget.h \
-    CustomWidget/stackwidgetprinting.h
+    CustomWidget/stackwidgetprinting.h \
+    CustomControl/cycleprocess.h
 
 FORMS += \
     CustomWidget/widget.ui \

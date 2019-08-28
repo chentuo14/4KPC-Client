@@ -1,9 +1,6 @@
 <RCC>
     <qresource prefix="/background">
         <file>timg.jpg</file>
-        <file alias="darkblue.jpg">90e854d4a2204382682764da3096d0d7.jpg</file>
-        <file alias="monitor_fill.png">monitor_716px_1232904_easyicon_fill.png</file>
-        <file alias="monitor_empty.png">monitor_716px_1232904_easyicon_white.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file alias="skin.png">browser_445px_1194450_easyicon.net.png</file>
@@ -11,13 +8,24 @@
         <file alias="setting.png">setting_445px_1194517_easyicon.net.png</file>
         <file alias="close.png">x_close_445px_1194532_easyicon.net.png</file>
         <file>SoonSolid_icon.png</file>
-        <file alias="laptop_color.png">laptop_587px_1213550_easyicon.net.png</file>
-        <file alias="laptop_black.png">laptop_608px_1213520_easyicon.net.png</file>
-        <file alias="print_unchecked.png">3D_printer_450px_1166667_easyicon.png</file>
-        <file alias="print_checked.png">3D_printer_484px_1166653_easyicon.net.png</file>
     </qresource>
     <qresource prefix="/buttonIcon">
         <file alias="printsetting.png">settings_783px_1232032_easyicon.net.png</file>
         <file alias="printhistory.png">history_287px_1148191_easyicon.net.png</file>
+    </qresource>
+    <qresource prefix="/CustomControl">
+        <file>cycle.png</file>
+        <file alias="print_checked.png">projector_783px_1208662_easyicon.net.png</file>
+        <file alias="print_unchecked.png">projector_1016px_1208478_easyicon.png</file>
+        <file alias="setting_checked.png">file_783px_1208664_easyicon.net.png</file>
+        <file alias="setting_unchecked.png">file_1016px_1208480_easyicon.png</file>
+        <file alias="projector_checked.png">video_camera_783px_1208658_easyicon.net.png</file>
+        <file alias="projector_unchecked.png">video_camera_1016px_1208474_easyicon.png</file>
+        <file alias="machine_checked.png">next_783px_1208642_easyicon.net.png</file>
+        <file alias="machine_unchecked.png">next_1016px_1208458_easyicon.png</file>
+        <file alias="about_checked.png">worldwide_783px_1208639_easyicon.net.png</file>
+        <file alias="about_unchecked.png">worldwide_1016px_1208455_easyicon.png</file>
+        <file alias="history_unchecked.png">sd_card_1016px_1208446_easyicon.png</file>
+        <file alias="history_checked.png">sd_card_783px_1208630_easyicon.net.png</file>
     </qresource>
 </RCC>
