@@ -11,6 +11,8 @@
 #include <QIcon>
 #include "CustomWidget/leftmenubar.h"
 #include "CustomWidget/stackwidgetone.h"
+#include "CustomWidget/mystackedwidget.h"
+#include "CustomWidget/stackwidgetprinting.h"
 
 namespace Ui {
 class Widget;
@@ -45,13 +47,14 @@ private:
     LeftMenuBar *m_leftMenu;
     int m_leftMenuNum;
     int m_leftMenuWidth;
-    QStackedWidget *m_stackWidget;
+    MyStackedWidget *m_stackWidget;
     QPoint m_mouseMovePoint;
     bool m_mousePressed;
     QToolButton *m_minButton, *m_closeButton, *m_skinButton, *m_settingButton;
-    /* widget one */
+    /* 第一个选项的界面 */
     StackWidgetOne *m_widgteOne;
     QLabel *m_widOneTitle;
+    StackWidgetPrinting *m_printingWidget;
 };
 
 #endif // WIDGET_H

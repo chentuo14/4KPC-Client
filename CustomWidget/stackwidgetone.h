@@ -6,7 +6,7 @@
 #include <QPushButton>
 #include <QTimer>
 #include <QDateTime>
-#include "CustomWidget/printingwidget.h"
+#include "CustomWidget/stackwidgetprinting.h"
 
 namespace Ui {
 class StackWidgetOne;
@@ -25,6 +25,7 @@ public slots:
     void OnHistoryBtnClicked();
     void OnSettingBtnClicked();
 signals:
+    void btnPrintClicked(int startValue);
     void btnHistoryClicked();
     void btnSettingClicked();
 private:
@@ -34,8 +35,6 @@ private:
     QLabel *m_historyTitle, *m_historyStatus;
     QPushButton *m_btnPrint,*m_btnSetting,*m_btnHistory;
     QTimer *m_checkTimeTimer;
-    PrintingWidget *m_printingWidget;
-
 };
 
 #endif // STACKWIDGETONE_H

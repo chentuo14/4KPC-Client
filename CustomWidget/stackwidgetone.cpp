@@ -21,8 +21,6 @@ StackWidgetOne::StackWidgetOne(QWidget *parent) :
     m_btnPrint->setGeometry(100, 280, 150, 50);
     m_btnPrint->setStyleSheet("border:none;background-color:green;color:white");
     connect(m_btnPrint, &QPushButton::clicked, this, &StackWidgetOne::OnPrintBtnClicked);
-    m_printingWidget = new PrintingWidget(this);
-    m_printingWidget->setGeometry(this->geometry());
 
     /* 设置按钮 */
     m_btnSetting = new QPushButton(this);
@@ -81,7 +79,8 @@ void StackWidgetOne::CheckTimeTimerSlot()
 void StackWidgetOne::OnPrintBtnClicked()
 {
     qDebug()<<"print button clicked";
-    m_printingWidget->show();
+//    emit(btnPrintClicked(this->height()));
+    emit(btnPrintClicked(this->width()));
 }
 
 void StackWidgetOne::OnHistoryBtnClicked()

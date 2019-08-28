@@ -67,15 +67,25 @@ void Widget::InitMyWidget()
 
     InitLeftButton();
     /* 初始化stackWdiget */
-    m_stackWidget = new QStackedWidget(this);
-    m_widgteOne = new StackWidgetOne(this);
+    m_stackWidget = new MyStackedWidget(this);
+    m_stackWidget->setGeometry(m_leftMenuWidth, 0, this->width()-m_leftMenuWidth, this->height());
+    m_widgteOne = new StackWidgetOne(this);         //第一个界面做打印
+    m_widgteOne->setGeometry(0, 0, m_stackWidget->width(), m_stackWidget->height());
     m_stackWidget->addWidget(m_widgteOne);
+
+
     for(int i=1;i<m_leftMenuNum;i++) {
         m_stackWidget->addWidget(new QLabel(QString("windowTest%1").arg(i)));
     }
+    m_printingWidget = new StackWidgetPrinting(this);
+    m_printingWidget->setGeometry(0, 0, this->width(), this->height());
+    m_stackWidget->addWidget(m_printingWidget);     //index 6
 
-    m_stackWidget->setGeometry(m_leftMenuWidth, 0, this->width()-m_leftMenuWidth, this->height());
-    connect(m_leftMenu->getLeftMenuButtonGroup(),SIGNAL(buttonClicked(int)), m_stackWidget,SLOT(setCurrentIndex(int)));
+//    connect(m_widgteOne, &StackWidgetOne::btnPrintClicked, m_stackWidget, &MyStackedWidget::onEnterPrintingWidget);
+    connect(m_widgteOne, &StackWidgetOne::btnPrintClicked, m_stackWidget, &MyStackedWidget::onPrintStartDisplay);
+    connect(m_leftMenu->getLeftMenuButtonGroup(),SIGNAL(buttonClicked(int)), m_stackWidget,SLOT(onWidgetChanged(int)));
+    connect(m_printingWidget, &StackWidgetPrinting::onCancelSignal, m_stackWidget, &MyStackedWidget::onPrintCancelDisplay);
+    m_stackWidget->setCurrentIndex(0);
 
     InitRightTopButton();
 

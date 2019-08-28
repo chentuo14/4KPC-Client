@@ -29,22 +29,22 @@ SOURCES += \
     CustomWidget/customtoolbutton.cpp \
     CustomWidget/leftmenubar.cpp \
     CustomWidget/stackwidgetone.cpp \
-    CustomWidget/printingwidget.cpp \
-    CustomWidget/mystackedwidget.cpp
+    CustomWidget/mystackedwidget.cpp \
+    CustomWidget/stackwidgetprinting.cpp
 
 HEADERS += \
     CustomWidget/widget.h \
     CustomWidget/customtoolbutton.h \
     CustomWidget/leftmenubar.h \
     CustomWidget/stackwidgetone.h \
-    CustomWidget/printingwidget.h \
-    CustomWidget/mystackedwidget.h
+    CustomWidget/mystackedwidget.h \
+    CustomWidget/stackwidgetprinting.h
 
 FORMS += \
     CustomWidget/widget.ui \
     CustomWidget/leftmenubar.ui \
     CustomWidget/stackwidgetone.ui \
-    CustomWidget/printingwidget.ui
+    CustomWidget/stackwidgetprinting.ui
 
 RESOURCES += \
     Resource/res.qrc

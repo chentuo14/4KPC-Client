@@ -2,8 +2,8 @@
  <author/>
  <comment/>
  <exportmacro/>
- <class>PrintingWidget</class>
- <widget class="QWidget" name="PrintingWidget">
+ <class>StackWidgetPrinting</class>
+ <widget name="StackWidgetPrinting" class="QWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
