@@ -17,6 +17,7 @@ public:
 
     void paintEvent(QPaintEvent *event);
     void setLabelText(QString text);
+    QLabel *getCenterLabel();
 signals:
 
 public slots:

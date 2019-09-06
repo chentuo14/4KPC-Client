@@ -12,6 +12,16 @@
     <qresource prefix="/buttonIcon">
         <file alias="printsetting.png">settings_783px_1232032_easyicon.net.png</file>
         <file alias="printhistory.png">history_287px_1148191_easyicon.net.png</file>
+        <file alias="progress0.png">进度1.png</file>
+        <file alias="progress1.png">进度2.png</file>
+        <file alias="progress2.png">进度3.png</file>
+        <file alias="progress3.png">进度4.png</file>
+        <file alias="progress4.png">进度5.png</file>
+        <file alias="progress5.png">进度6.png</file>
+        <file alias="progress6.png">进度7.png</file>
+        <file alias="progress7.png">进度8.png</file>
+        <file alias="progressFinish.png">进度成功绿2.png</file>
+        <file alias="progressWait.png">进度等待.png</file>
     </qresource>
     <qresource prefix="/CustomControl">
         <file>cycle.png</file>

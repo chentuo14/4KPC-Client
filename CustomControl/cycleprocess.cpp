@@ -34,6 +34,11 @@ void CycleProcess::setLabelText(QString text)
     m_centerLabel->setText(text);
 }
 
+QLabel *CycleProcess::getCenterLabel()
+{
+    return m_centerLabel;
+}
+
 void CycleProcess::onRotateTimer()
 {
     m_angle+=1;

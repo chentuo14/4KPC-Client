@@ -1,6 +1,9 @@
 #include "stackwidgetone.h"
 #include "ui_stackwidgetone.h"
 #include <QDebug>
+#include <QFileDialog>
+#include <QDesktopServices>
+#include <QDir>
 
 StackWidgetOne::StackWidgetOne(QWidget *parent) :
     QWidget(parent),
@@ -80,6 +83,12 @@ void StackWidgetOne::OnPrintBtnClicked()
 {
     qDebug()<<"print button clicked";
 //    emit(btnPrintClicked(this->height()));
+    QFileDialog fileDialog;
+    fileDialog.setWindowFlags(Qt::FramelessWindowHint);
+    fileDialog.setStyleSheet("background-color:red;");
+    QString printName = fileDialog.getOpenFileName(this, "select file", QDir::homePath(), "*.ssj", 0, QFileDialog::DontUseNativeDialog);
+    if(printName.isEmpty())
+        return;
     emit(btnPrintClicked(this->width()));
 }
 

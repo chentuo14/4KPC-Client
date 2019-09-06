@@ -61,7 +61,7 @@ void Widget::onMinButtonSlot()
 
 void Widget::InitMyWidget()
 {
-    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::FramelessWindowHint);
     setMouseTracking(true);
     this->setGeometry(0, 0, 880, 543);
 
@@ -73,8 +73,11 @@ void Widget::InitMyWidget()
     m_widgteOne->setGeometry(0, 0, m_stackWidget->width(), m_stackWidget->height());
     m_stackWidget->addWidget(m_widgteOne);
 
+    m_widgetTwo = new StackWidgetSetting(this);
+    m_widgetTwo->setGeometry(0, 0, m_stackWidget->width(), m_stackWidget->height());
+    m_stackWidget->addWidget(m_widgetTwo);
 
-    for(int i=1;i<m_leftMenuNum;i++) {
+    for(int i=2;i<m_leftMenuNum;i++) {
         m_stackWidget->addWidget(new QLabel(QString("windowTest%1").arg(i)));
     }
     m_printingWidget = new StackWidgetPrinting(this);

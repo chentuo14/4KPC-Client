@@ -31,7 +31,12 @@ SOURCES += \
     CustomWidget/stackwidgetone.cpp \
     CustomWidget/mystackedwidget.cpp \
     CustomWidget/stackwidgetprinting.cpp \
-    CustomControl/cycleprocess.cpp
+    CustomControl/cycleprocess.cpp \
+    CustomControl/mytablewidget.cpp \
+    CustomControl/nofocusdelegate.cpp \
+    CustomWidget/stackwidgetmatrial.cpp \
+    CustomControl/rollingcontrol.cpp \
+    CustomWidget/stackwidgetsetting.cpp
 
 HEADERS += \
     CustomWidget/widget.h \
@@ -40,7 +45,13 @@ HEADERS += \
     CustomWidget/stackwidgetone.h \
     CustomWidget/mystackedwidget.h \
     CustomWidget/stackwidgetprinting.h \
-    CustomControl/cycleprocess.h
+    CustomControl/cycleprocess.h \
+    CustomControl/mytablewidget.h \
+    CustomControl/nofocusdelegate.h \
+    myglobal.h \
+    CustomWidget/stackwidgetmatrial.h \
+    CustomControl/rollingcontrol.h \
+    CustomWidget/stackwidgetsetting.h
 
 FORMS += \
     CustomWidget/widget.ui \

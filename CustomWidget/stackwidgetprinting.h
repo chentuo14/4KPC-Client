@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QProgressBar>
 #include <QTimer>
+#include "CustomControl/mytablewidget.h"
 #include "CustomControl/cycleprocess.h"
 
 namespace Ui {
@@ -22,6 +23,7 @@ public:
 public slots:
     void onCancelBtnClicked();
     void onTestTimer();
+    void onProgressValueChange(int value);
 
 signals:
     void onStartCycleSignal(int msec);
@@ -30,11 +32,12 @@ signals:
 
 private:
     Ui::StackWidgetPrinting *ui;
-    QPushButton *m_btnCancel, *m_btnPasuse;
-    CycleProcess *m_cycleProcess;
-    QLabel *m_statusTitle, *m_statusContext;
-    QProgressBar *m_pritingBar;
+    QPushButton *m_btnCancel, *m_btnPasuse;                     //取消按钮、暂停按钮
+    CycleProcess *m_cycleProcess;                               //圆圈进度
+    QLabel *m_statusTitle, *m_statusContext;                    //主状态、此状态label
+    QProgressBar *m_pritingBar;                                 //打印进度条
     QTimer m_testTimer;
+    MyTableWidget *m_printStatusTable;                          //打印信息表格
     int m_progressValue = 0;
 
 };
