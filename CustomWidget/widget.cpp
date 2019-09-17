@@ -76,6 +76,15 @@ void Widget::InitMyWidget()
     m_widgetTwo = new StackWidgetSetting(this);
     m_widgetTwo->setGeometry(0, 0, m_stackWidget->width(), m_stackWidget->height());
     m_stackWidget->addWidget(m_widgetTwo);
+    QFile qss(":/background/MatrialStyle.qss");
+    if(qss.open(QFile::ReadOnly)) {
+        qDebug()<<"matrial open success";
+        QString style =QLatin1String(qss.readAll());
+        m_stackWidget->setStyleSheet(style);
+        qss.close();
+    } else {
+        qDebug("Open failed");
+    }
 
     for(int i=2;i<m_leftMenuNum;i++) {
         m_stackWidget->addWidget(new QLabel(QString("windowTest%1").arg(i)));

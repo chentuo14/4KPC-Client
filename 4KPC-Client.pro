@@ -36,7 +36,9 @@ SOURCES += \
     CustomControl/nofocusdelegate.cpp \
     CustomWidget/stackwidgetmatrial.cpp \
     CustomControl/rollingcontrol.cpp \
-    CustomWidget/stackwidgetsetting.cpp
+    CustomWidget/stackwidgetsetting.cpp \
+    CustomControl/mylistitem.cpp \
+    CustomControl/mylistwidget.cpp
 
 HEADERS += \
     CustomWidget/widget.h \
@@ -51,7 +53,9 @@ HEADERS += \
     myglobal.h \
     CustomWidget/stackwidgetmatrial.h \
     CustomControl/rollingcontrol.h \
-    CustomWidget/stackwidgetsetting.h
+    CustomWidget/stackwidgetsetting.h \
+    CustomControl/mylistitem.h \
+    CustomControl/mylistwidget.h
 
 FORMS += \
     CustomWidget/widget.ui \

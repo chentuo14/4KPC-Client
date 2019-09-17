@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/background">
         <file>timg.jpg</file>
+        <file>MatrialStyle.qss</file>
     </qresource>
     <qresource prefix="/icon">
         <file alias="skin.png">browser_445px_1194450_easyicon.net.png</file>
@@ -22,6 +23,8 @@
         <file alias="progress7.png">进度8.png</file>
         <file alias="progressFinish.png">进度成功绿2.png</file>
         <file alias="progressWait.png">进度等待.png</file>
+        <file>checked.png</file>
+        <file>unckecked.png</file>
     </qresource>
     <qresource prefix="/CustomControl">
         <file>cycle.png</file>
@@ -37,5 +40,14 @@
         <file alias="about_unchecked.png">worldwide_1016px_1208455_easyicon.png</file>
         <file alias="history_unchecked.png">sd_card_1016px_1208446_easyicon.png</file>
         <file alias="history_checked.png">sd_card_783px_1208630_easyicon.net.png</file>
+    </qresource>
+    <qresource prefix="/myMatrialList">
+        <file alias="ok.png">circle_ok_308px_1232975_easyicon.net.png</file>
+        <file alias="okHover.png">circle_ok_hover_308px_1232975_easyicon.png</file>
+        <file alias="close.png">close_188px_1232978_easyicon.net.png</file>
+        <file alias="closeHover.png">close_hover_188px_1232978_easyicon.png</file>
+        <file alias="selected.png">finish_flag_250px_1164924_easyicon.png</file>
+        <file alias="plus.png">plus_250px_1233076_easyicon.net.png</file>
+        <file alias="plusHover.png">plus_hover_250px_1233076_easyicon.png</file>
     </qresource>
 </RCC>

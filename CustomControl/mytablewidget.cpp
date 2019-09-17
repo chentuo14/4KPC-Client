@@ -62,7 +62,7 @@ MyTableWidget::MyTableWidget(QWidget *parent) : QTableWidget(parent)
     m_iconCount = 0;
     m_iconWaitRow = -1;
     connect(m_iconTimer, &QTimer::timeout, this, &MyTableWidget::onIconWaitTimer);
-    this->setSpan(0,0,1,1);
+//    this->setSpan(0,0,1,1);
     this->item(0,0)->setText("");
     this->item(0,1)->setTextAlignment(Qt::AlignLeft|Qt::AlignVCenter);
     this->setTableSize(0);
