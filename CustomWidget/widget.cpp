@@ -73,12 +73,12 @@ void Widget::InitMyWidget()
     m_widgteOne->setGeometry(0, 0, m_stackWidget->width(), m_stackWidget->height());
     m_stackWidget->addWidget(m_widgteOne);
 
-    m_widgetTwo = new StackWidgetSetting(this);
+    m_widgetTwo = new StackWidgetMaterial(this);
     m_widgetTwo->setGeometry(0, 0, m_stackWidget->width(), m_stackWidget->height());
     m_stackWidget->addWidget(m_widgetTwo);
     QFile qss(":/background/MatrialStyle.qss");
     if(qss.open(QFile::ReadOnly)) {
-        qDebug()<<"matrial open success";
+        qDebug()<<"material open success";
         QString style =QLatin1String(qss.readAll());
         m_stackWidget->setStyleSheet(style);
         qss.close();
@@ -170,7 +170,7 @@ void Widget::InitLeftButton()
         vec->at(i)->setMyIconSize(QSize(size, size));
     }
     vec->at(0)->setText(QString("打印"));
-    vec->at(1)->setText(QString("设置"));
+    vec->at(1)->setText(QString("材料"));
     vec->at(2)->setText(QString("记录"));
     vec->at(3)->setText(QString("光机"));
     vec->at(4)->setText(QString("设备"));

@@ -34,11 +34,11 @@ SOURCES += \
     CustomControl/cycleprocess.cpp \
     CustomControl/mytablewidget.cpp \
     CustomControl/nofocusdelegate.cpp \
-    CustomWidget/stackwidgetmatrial.cpp \
     CustomControl/rollingcontrol.cpp \
-    CustomWidget/stackwidgetsetting.cpp \
     CustomControl/mylistitem.cpp \
-    CustomControl/mylistwidget.cpp
+    CustomControl/mylistwidget.cpp \
+    CustomControl/mynumrooll.cpp \
+    CustomWidget/stackwidgetmatetrial.cpp
 
 HEADERS += \
     CustomWidget/widget.h \
@@ -51,11 +51,11 @@ HEADERS += \
     CustomControl/mytablewidget.h \
     CustomControl/nofocusdelegate.h \
     myglobal.h \
-    CustomWidget/stackwidgetmatrial.h \
     CustomControl/rollingcontrol.h \
-    CustomWidget/stackwidgetsetting.h \
     CustomControl/mylistitem.h \
-    CustomControl/mylistwidget.h
+    CustomControl/mylistwidget.h \
+    CustomControl/mynumroll.h \
+    CustomWidget/stackwidgetmaterial.h
 
 FORMS += \
     CustomWidget/widget.ui \

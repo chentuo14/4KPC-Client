@@ -24,22 +24,22 @@ public:
     explicit MyListItem(QWidget *parent = nullptr);
     explicit MyListItem(MyListItem *item);
 
-    void SetItemMatrialInfo(QString name, QString description);
+    void SetItemMaterialInfo(QString name, QString description);
     void GetMimData(QMimeData *data);
     void SetMimData(const QMimeData *data);
-    void SetMatrialName(QString name);
-    QString GetMatrialName();
-    void SetMatrialDescription(QString description);
-    QString GetMatrialDescription();
+    void SetMaterialName(QString name);
+    QString GetMaterialName();
+    void SetMaterialDescription(QString description);
+    QString GetMaterialDescription();
     void SetItemSelectedFlag(bool flag);
     bool GetItemSelectedFlag();
     void SetItemEditable(bool flag);
     bool GetItemEditable();
-    void SetMatrials(QString string);
-    QStringList GetMatrials();
+    void SetMaterials(QString string);
+    QStringList GetMaterials();
 
-    void SelectMatrialDisplay();
-    void UnselectMatrialDisplay();
+    void SelectMaterialDisplay();
+    void UnselectMaterialDisplay();
     void SetItemEditText();
 
 protected:
@@ -53,7 +53,7 @@ protected:
     void focusOutEvent(QFocusEvent *event);
 
     void InitDefaultParamters();
-    void InitMatrialInfomations();
+    void InitMaterialInfomations();
     void InitButtons();
     void InitLayout();
     void HideOperationButton();
@@ -73,13 +73,13 @@ public slots:
 private:
     /* 材料相关 */
     QLabel *m_titleName, *m_titleDescritpion;
-    QLabel *m_matrialName, *m_matrialDescription;
+    QLabel *m_materialName, *m_materialDescription;
     QLabel *m_selectIcon;
-    QStringList m_matrials;
+    QStringList m_materials;
     /* 右侧按钮 */
     QPushButton *m_btnDel, *m_btnEdit, *m_btnSelect;
     QGridLayout *m_mainlayout;
-    QLineEdit *m_matrialNameEdit, *m_matrialDescriptionEdit;
+    QLineEdit *m_materialNameEdit, *m_materialDescriptionEdit;
     bool m_mouseEnterFlag, m_selectedFlag;
     bool m_isEditable;
 

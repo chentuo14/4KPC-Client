@@ -6,13 +6,13 @@ MyListWidget::MyListWidget(QWidget *parent):QListWidget(parent),
 {
     /* 增加item */
     MyListItem *list = new MyListItem(this);
-    list->SetMatrialName("name");
+    list->SetMaterialName("name");
     MyListItem *list1 = new MyListItem(this);
-    list1->SetMatrialName("name1");
+    list1->SetMaterialName("name1");
     MyListItem *list2 = new MyListItem(this);
-    list2->SetMatrialName("name2");
+    list2->SetMaterialName("name2");
     MyListItem *list3 = new MyListItem(this);
-    list3->SetMatrialName("name3");
+    list3->SetMaterialName("name3");
 
     this->InsertCustomItem(list);
     this->InsertCustomItem(list1);
@@ -35,28 +35,28 @@ MyListWidget::~MyListWidget()
 }
 
 //从文件中加载item数据
-void MyListWidget::LoadDefaultMatrialList(QString filePath)
+void MyListWidget::LoadDefaultMaterialList(QString filePath)
 {
-    QFile matrialFile(filePath);
-    if(!matrialFile.open(QFile::ReadWrite)) {
+    QFile materialFile(filePath);
+    if(!materialFile.open(QFile::ReadWrite)) {
         qDebug()<<"open fialed";
         return;
     }
-    while(!matrialFile.atEnd()) {
+    while(!materialFile.atEnd()) {
         char cell[1024];
-        int readNum = matrialFile.readLine(cell, 50);
+        int readNum = materialFile.readLine(cell, 50);
 //        qDebug()<<"readNum:"<<readNum<<cell;
         QString string(cell);
         MyListItem *item = new MyListItem(this);
-        item->SetMatrials(string);
-        item->SetMatrialName(item->GetMatrials().at(0));
-        item->SetMatrialDescription(item->GetMatrials().at(1));
+        item->SetMaterials(string);
+        item->SetMaterialName(item->GetMaterials().at(0));
+        item->SetMaterialDescription(item->GetMaterials().at(1));
         item->SetItemEditable(false);
         this->InsertCustomItem(this->count(), item);
     }
 }
 
-void MyListWidget::LoadCustomMatrialList(QString filePath)
+void MyListWidget::LoadCustomMaterialList(QString filePath)
 {
 
 }
@@ -134,7 +134,7 @@ void MyListWidget::OnEditItemClicked(QPoint pos)
     QListWidgetItem *btnItem = itemAt(pos);
     int btnRow = row(btnItem);
     MyListItem *addItem = new MyListItem(this);
-    addItem->SetMatrialName("custom");
+    addItem->SetMaterialName("custom");
     InsertCustomItem(btnRow, addItem);
     qDebug()<<"OnEditItemClicked:additem"<<addItem->geometry();
     addItem->SetItemEditText();
@@ -148,16 +148,16 @@ void MyListWidget::OnSelectedClicked(QPoint pos)
         MyListItem *item = ((MyListItem *)this->itemWidget(this->item(i)));
         if(item && item->GetItemSelectedFlag()) {
 //            qDebug()<<"UnselectMatrialDisplay";
-            item->UnselectMatrialDisplay();
+            item->UnselectMaterialDisplay();
             break;
         }
     }
     MyListItem *selectItem = ((MyListItem *)this->itemWidget(this->itemAt(pos)));
-    selectItem->SelectMatrialDisplay();
+    selectItem->SelectMaterialDisplay();
 }
 
 //显示或隐藏，true隐藏，false显示
-void MyListWidget::OnHideDefaultMatrial(bool flag)
+void MyListWidget::OnHideDefaultMaterial(bool flag)
 {
     for(int i=0;i<this->count();i++) {
         MyListItem *myItem = (MyListItem *)itemWidget(this->item(i));
@@ -169,7 +169,7 @@ void MyListWidget::OnHideDefaultMatrial(bool flag)
 }
 
 //显示或隐藏，true隐藏，false显示
-void MyListWidget::OnHideCustomMatrial(bool flag)
+void MyListWidget::OnHideCustomMaterial(bool flag)
 {
     for(int i=0;i<this->count();i++) {
         MyListItem *myItem = (MyListItem *)itemWidget(this->item(i));

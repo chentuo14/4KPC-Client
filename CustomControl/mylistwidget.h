@@ -18,8 +18,8 @@ public:
     MyListWidget(QWidget *parent = 0);
     ~MyListWidget();
 
-    void LoadDefaultMatrialList(QString filePath);
-    void LoadCustomMatrialList(QString filePath);
+    void LoadDefaultMaterialList(QString filePath);
+    void LoadCustomMaterialList(QString filePath);
     void InsertCustomItem(MyListItem *customItem);
     void InsertCustomItem(int rowIndex, MyListItem *customItem);
     void ConnectCustomSignalAndSlot(MyListItem *customItem);
@@ -30,8 +30,8 @@ public slots:
     void OnDelItemClicked(QPoint pos);
     void OnEditItemClicked(QPoint pos);
     void OnSelectedClicked(QPoint pos);
-    void OnHideDefaultMatrial(bool flag);
-    void OnHideCustomMatrial(bool flag);
+    void OnHideDefaultMaterial(bool flag);
+    void OnHideCustomMaterial(bool flag);
 protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
@@ -47,7 +47,7 @@ private:
     QListWidgetItem *m_startItem;
     MyListItem *m_dragItem;
     bool m_isDragFlag, m_ignoreMoveFlag, m_mousePressFlag;
-    QStringList m_matrialList;
+    QStringList m_materialList;
 };
 
 #endif // MYLISTWIDGET_H

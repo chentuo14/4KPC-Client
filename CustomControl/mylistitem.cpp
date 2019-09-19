@@ -5,7 +5,7 @@ MyListItem::MyListItem(QWidget *parent) : QWidget(parent)
 {
     InitDefaultParamters();
 
-    InitMatrialInfomations();
+    InitMaterialInfomations();
 
     InitButtons();
 
@@ -18,7 +18,7 @@ MyListItem::MyListItem(MyListItem *item) : QWidget((QWidget *)item->parent())
 {
     InitDefaultParamters();
 
-    InitMatrialInfomations();
+    InitMaterialInfomations();
 
     InitButtons();
 
@@ -26,15 +26,15 @@ MyListItem::MyListItem(MyListItem *item) : QWidget((QWidget *)item->parent())
 
     InitLayout();
 
-    this->SetMatrialName(item->GetMatrialName());
-    this->SetMatrialDescription(item->GetMatrialDescription());
+    this->SetMaterialName(item->GetMaterialName());
+    this->SetMaterialDescription(item->GetMaterialDescription());
 //    qDebug()<<"MyListItem"<<this->geometry();
 }
 
-void MyListItem::SetItemMatrialInfo(QString name, QString description)
+void MyListItem::SetItemMaterialInfo(QString name, QString description)
 {
-    SetMatrialName(name);
-    SetMatrialDescription(description);
+    SetMaterialName(name);
+    SetMaterialDescription(description);
 }
 
 //设置拖拽的信息
@@ -43,38 +43,38 @@ void MyListItem::SetMimData(const QMimeData *data)
     QString str = data->text();
     QStringList lists =str.split(";");
     /* data格式：材料名；描述；是否可编辑 */
-    this->SetMatrialName(lists.first());
-    this->SetMatrialDescription(lists[1]);
+    this->SetMaterialName(lists.first());
+    this->SetMaterialDescription(lists[1]);
     this->SetItemEditable(lists[2]=="1"?true:false);
 }
 
 void MyListItem::GetMimData(QMimeData *data)
 {
-    QString matrialName = this->GetMatrialName();
-    QString matrialDescription = this->GetMatrialDescription();
+    QString materialName = this->GetMaterialName();
+    QString materialDescription = this->GetMaterialDescription();
     QString editable = this->GetItemEditable()?"1":"0";
-    data->setText(matrialName+";"+matrialDescription+";"+editable);
+    data->setText(materialName+";"+materialDescription+";"+editable);
 //    qDebug()<<"GetMinData:"<<data->text();
 }
 
-void MyListItem::SetMatrialName(QString name)
+void MyListItem::SetMaterialName(QString name)
 {
-    m_matrialName->setText(name);
+    m_materialName->setText(name);
 }
 
-QString MyListItem::GetMatrialName()
+QString MyListItem::GetMaterialName()
 {
-    return m_matrialName->text();
+    return m_materialName->text();
 }
 
-void MyListItem::SetMatrialDescription(QString description)
+void MyListItem::SetMaterialDescription(QString description)
 {
-    m_matrialDescription->setText(description);
+    m_materialDescription->setText(description);
 }
 
-QString MyListItem::GetMatrialDescription()
+QString MyListItem::GetMaterialDescription()
 {
-    return m_matrialDescription->text();
+    return m_materialDescription->text();
 }
 
 void MyListItem::SetItemSelectedFlag(bool flag)
@@ -97,35 +97,35 @@ bool MyListItem::GetItemEditable()
     return m_isEditable;
 }
 
-void MyListItem::SetMatrials(QString string)
+void MyListItem::SetMaterials(QString string)
 {
-    m_matrials = string.split(";");
+    m_materials = string.split(";");
 }
 
-QStringList MyListItem::GetMatrials()
+QStringList MyListItem::GetMaterials()
 {
-    return m_matrials;
+    return m_materials;
 }
 
-void MyListItem::SelectMatrialDisplay()
+void MyListItem::SelectMaterialDisplay()
 {
     //重新布局
     m_selectIcon->show();
     m_mainlayout->addWidget(m_selectIcon,1,1,1,1);
-    m_mainlayout->addWidget(m_matrialName,1,2,1,1);
-    m_mainlayout->addWidget(m_matrialDescription, 2,2,1,1);
+    m_mainlayout->addWidget(m_materialName,1,2,1,1);
+    m_mainlayout->addWidget(m_materialDescription, 2,2,1,1);
     this->setLayout(m_mainlayout);
-    QImage *img = new QImage(":/myMatrialList/selected.png");
+    QImage *img = new QImage(":/myMaterialList/selected.png");
     m_selectIcon->setPixmap(QPixmap::fromImage(img->scaled(m_selectIcon->size(), Qt::KeepAspectRatio)));
     SetItemSelectedFlag(true);
 }
 
-void MyListItem::UnselectMatrialDisplay()
+void MyListItem::UnselectMaterialDisplay()
 {
     //恢复布局
     m_selectIcon->hide();
-    m_mainlayout->addWidget(m_matrialName,1,1,1,1);
-    m_mainlayout->addWidget(m_matrialDescription, 2,1,1,1);
+    m_mainlayout->addWidget(m_materialName,1,1,1,1);
+    m_mainlayout->addWidget(m_materialDescription, 2,1,1,1);
     this->setLayout(m_mainlayout);
     SetItemSelectedFlag(false);
 }
@@ -133,15 +133,15 @@ void MyListItem::UnselectMatrialDisplay()
 void MyListItem::SetItemEditText()
 {
     HideOperationButton();
-    m_matrialNameEdit->setGeometry(m_matrialName->geometry());
-    m_matrialNameEdit->setText(GetMatrialName());
-    m_matrialNameEdit->show();
+    m_materialNameEdit->setGeometry(m_materialName->geometry());
+    m_materialNameEdit->setText(GetMaterialName());
+    m_materialNameEdit->show();
 
-    m_matrialDescriptionEdit->setGeometry(m_matrialDescription->geometry());
-    m_matrialDescriptionEdit->setText(GetMatrialDescription());
-    m_matrialDescriptionEdit->show();
-    m_matrialNameEdit->setFocus();
-    m_matrialNameEdit->selectAll();
+    m_materialDescriptionEdit->setGeometry(m_materialDescription->geometry());
+    m_materialDescriptionEdit->setText(GetMaterialDescription());
+    m_materialDescriptionEdit->show();
+    m_materialNameEdit->setFocus();
+    m_materialNameEdit->selectAll();
 }
 
 void MyListItem::paintEvent(QPaintEvent *event)
@@ -189,13 +189,13 @@ void MyListItem::leaveEvent(QEvent *event)
 {
     QWidget::leaveEvent(event);
     HideOperationButton();
-    if(!m_matrialNameEdit->isHidden()) {
-        SetMatrialName(m_matrialNameEdit->text());
-        m_matrialNameEdit->hide();
+    if(!m_materialNameEdit->isHidden()) {
+        SetMaterialName(m_materialNameEdit->text());
+        m_materialNameEdit->hide();
     }
-    if(!m_matrialDescriptionEdit->isHidden()) {
-        SetMatrialDescription(m_matrialDescriptionEdit->text());
-        m_matrialDescriptionEdit->hide();
+    if(!m_materialDescriptionEdit->isHidden()) {
+        SetMaterialDescription(m_materialDescriptionEdit->text());
+        m_materialDescriptionEdit->hide();
     }
 
     m_mouseEnterFlag = false;
@@ -220,20 +220,20 @@ void MyListItem::InitDefaultParamters()
     m_selectedFlag = false;                 //是否被选中
 }
 
-void MyListItem::InitMatrialInfomations()
+void MyListItem::InitMaterialInfomations()
 {
     /* 材料信息 */
-    m_matrialName = new QLabel(this);
-    m_matrialDescription = new QLabel(this);
-    m_matrialNameEdit = new QLineEdit(this);
-    m_matrialDescriptionEdit = new QLineEdit(this);
-    SetMatrialName("name");
-    SetMatrialDescription("null");
-    m_matrialNameEdit->hide();
-    m_matrialDescriptionEdit->hide();
+    m_materialName = new QLabel(this);
+    m_materialDescription = new QLabel(this);
+    m_materialNameEdit = new QLineEdit(this);
+    m_materialDescriptionEdit = new QLineEdit(this);
+    SetMaterialName("name");
+    SetMaterialDescription("null");
+    m_materialNameEdit->hide();
+    m_materialDescriptionEdit->hide();
     /* 选中图标 */
     m_selectIcon = new QLabel(this);
-    QImage *backGround = new QImage(":/myMatrialList/selected.png");
+    QImage *backGround = new QImage(":/myMaterialList/selected.png");
     m_selectIcon->setFixedSize(50, 50);
     backGround->scaled(50, 50, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     m_selectIcon->setPixmap(QPixmap::fromImage(*backGround));
@@ -247,9 +247,9 @@ void MyListItem::InitButtons()
     m_btnDel = new QPushButton(this);
     m_btnSelect = new QPushButton(this);
 
-    m_btnEdit->setStyleSheet("QPushButton{border:0px solid;image:url(:/myMatrialList/plus.png);}QPushButton::Hover{image:url(:/myMatrialList/plusHover.png);}");
-    m_btnDel->setStyleSheet("QPushButton{border:0px solid;image:url(:/myMatrialList/close.png);}QPushButton::Hover{image:url(:/myMatrialList/closeHover.png);}");
-    m_btnSelect->setStyleSheet("QPushButton{border:0px solid;image:url(:/myMatrialList/ok.png);}QPushButton::Hover{image:url(:/myMatrialList/okHover.png);}");
+    m_btnEdit->setStyleSheet("QPushButton{border:0px solid;image:url(:/myMaterialList/plus.png);}QPushButton::Hover{image:url(:/myMaterialList/plusHover.png);}");
+    m_btnDel->setStyleSheet("QPushButton{border:0px solid;image:url(:/myMaterialList/close.png);}QPushButton::Hover{image:url(:/myMaterialList/closeHover.png);}");
+    m_btnSelect->setStyleSheet("QPushButton{border:0px solid;image:url(:/myMaterialList/ok.png);}QPushButton::Hover{image:url(:/myMaterialList/okHover.png);}");
     connect(m_btnEdit, &QPushButton::clicked, this, &MyListItem::onBtnEditClicked);
     connect(m_btnDel, &QPushButton::clicked, this, &MyListItem::onBtnDelClicked);
     connect(m_btnSelect, &QPushButton::clicked, this, &MyListItem::onBtnSelectClicked);
@@ -267,8 +267,8 @@ void MyListItem::InitLayout()
 {
     /* 布局 */
     m_mainlayout = new QGridLayout(this);
-    m_mainlayout->addWidget(m_matrialName, 1,1,1,1);
-    m_mainlayout->addWidget(m_matrialDescription,2,1,1,1);
+    m_mainlayout->addWidget(m_materialName, 1,1,1,1);
+    m_mainlayout->addWidget(m_materialDescription,2,1,1,1);
     this->setGeometry(0,0,264,50);
     this->setLayout(m_mainlayout);
 }

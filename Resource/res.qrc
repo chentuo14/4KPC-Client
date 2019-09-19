@@ -41,7 +41,7 @@
         <file alias="history_unchecked.png">sd_card_1016px_1208446_easyicon.png</file>
         <file alias="history_checked.png">sd_card_783px_1208630_easyicon.net.png</file>
     </qresource>
-    <qresource prefix="/myMatrialList">
+    <qresource prefix="/myMaterialList">
         <file alias="ok.png">circle_ok_308px_1232975_easyicon.net.png</file>
         <file alias="okHover.png">circle_ok_hover_308px_1232975_easyicon.png</file>
         <file alias="close.png">close_188px_1232978_easyicon.net.png</file>

@@ -13,7 +13,7 @@
 #include "CustomWidget/stackwidgetone.h"
 #include "CustomWidget/mystackedwidget.h"
 #include "CustomWidget/stackwidgetprinting.h"
-#include "CustomWidget/stackwidgetsetting.h"
+#include "CustomWidget/stackwidgetmaterial.h"
 
 namespace Ui {
 class Widget;
@@ -57,7 +57,7 @@ private:
     QLabel *m_widOneTitle;
     StackWidgetPrinting *m_printingWidget;
     /* 第二个选项的界面 */
-    StackWidgetSetting *m_widgetTwo;
+    StackWidgetMaterial *m_widgetTwo;
 };
 
 #endif // WIDGET_H
