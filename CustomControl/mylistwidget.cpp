@@ -22,9 +22,11 @@ MyListWidget::MyListWidget(QWidget *parent):QListWidget(parent),
     this->setGeometry(0,0,250,400);
     this->setItemDelegate(new NoFocusDelegate());
     this->setMovement(QListView::Free);
-    this->setStyleSheet("selection-color:rgb(255,255,255);/* 设置选中的字体颜色*/ selection-background-color:rgba(200,200,200,150);");
+    this->setStyleSheet("selection-color:rgb(255,255,255);/* 设置选中的字体颜色*/ "
+                        "selection-background-color:rgba(200,200,200,150);"
+                        "background:rgba(255,255,255,100);");
 
-    this->LoadDefaultMatrialList("./matrialList.txt");
+//    this->LoadDefaultMatrialList("./matrialList.txt");
 }
 
 MyListWidget::~MyListWidget()
