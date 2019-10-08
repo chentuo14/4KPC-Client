@@ -90,6 +90,7 @@ void StackWidgetOne::OnPrintBtnClicked()
     if(printName.isEmpty())
         return;
     emit(btnPrintClicked(this->width()));
+
 }
 
 void StackWidgetOne::OnHistoryBtnClicked()

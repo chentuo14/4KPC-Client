@@ -25,37 +25,45 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    CustomWidget/widget.cpp \
-    CustomWidget/customtoolbutton.cpp \
-    CustomWidget/leftmenubar.cpp \
-    CustomWidget/stackwidgetone.cpp \
-    CustomWidget/mystackedwidget.cpp \
-    CustomWidget/stackwidgetprinting.cpp \
     CustomControl/cycleprocess.cpp \
-    CustomControl/mytablewidget.cpp \
-    CustomControl/nofocusdelegate.cpp \
-    CustomControl/rollingcontrol.cpp \
     CustomControl/mylistitem.cpp \
     CustomControl/mylistwidget.cpp \
     CustomControl/mynumrooll.cpp \
-    CustomWidget/stackwidgetmatetrial.cpp
+    CustomControl/mytablewidget.cpp \
+    CustomControl/nofocusdelegate.cpp \
+    CustomControl/rollingcontrol.cpp \
+    CustomWidget/customtoolbutton.cpp \
+    CustomWidget/leftmenubar.cpp \
+    CustomWidget/mystackedwidget.cpp \
+    CustomWidget/stackwidgetmatetrial.cpp \
+    CustomWidget/stackwidgetone.cpp \
+    CustomWidget/stackwidgetprinting.cpp \
+    CustomWidget/widget.cpp \
+    Operation/printingjob.cpp \
+    Operation/crushbitmap.cpp \
+    Operation/myprintingthread.cpp
 
 HEADERS += \
-    CustomWidget/widget.h \
-    CustomWidget/customtoolbutton.h \
-    CustomWidget/leftmenubar.h \
-    CustomWidget/stackwidgetone.h \
-    CustomWidget/mystackedwidget.h \
-    CustomWidget/stackwidgetprinting.h \
     CustomControl/cycleprocess.h \
-    CustomControl/mytablewidget.h \
-    CustomControl/nofocusdelegate.h \
-    myglobal.h \
-    CustomControl/rollingcontrol.h \
     CustomControl/mylistitem.h \
     CustomControl/mylistwidget.h \
     CustomControl/mynumroll.h \
-    CustomWidget/stackwidgetmaterial.h
+    CustomControl/mytablewidget.h \
+    CustomControl/nofocusdelegate.h \
+    CustomControl/rollingcontrol.h \
+    CustomWidget/customtoolbutton.h \
+    CustomWidget/leftmenubar.h \
+    CustomWidget/mystackedwidget.h \
+    CustomWidget/stackwidgetmaterial.h \
+    CustomWidget/stackwidgetone.h \
+    CustomWidget/stackwidgetprinting.h \
+    CustomWidget/widget.h \
+    myglobal.h \
+    Operation/printingjob.h \
+    Operation/crushbitmap.h \
+    Operation/myprintingthread.h
+
+
 
 FORMS += \
     CustomWidget/widget.ui \
